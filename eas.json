@@ -1,0 +1,51 @@
+{
+  "cli": {
+    "version": ">= 16.0.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "base": {
+      "env": {
+        "EXPO_PUBLIC_ENTRA_TENANT_ID": "bee52737-6773-41c7-ae34-fed2f889151c",
+        "EXPO_PUBLIC_ENTRA_CLIENT_ID": "884f7e7a-99d3-4aa7-84f6-2f1f720fd63e"
+      }
+    },
+    "development": {
+      "extends": "base",
+      "developmentClient": true,
+      "distribution": "internal",
+      "environment": "development",
+      "android": { "buildType": "apk" },
+      "env": {
+        "APP_VARIANT": "development",
+        "EXPO_PUBLIC_API_URL": "http://192.168.0.10:7230",
+        "EXPO_PUBLIC_WS_URL": "ws://192.168.0.10:7230/ws"
+      }
+    },
+    "preview": {
+      "extends": "base",
+      "distribution": "internal",
+      "environment": "preview",
+      "android": { "buildType": "apk" },
+      "env": {
+        "APP_VARIANT": "preview",
+        "EXPO_PUBLIC_API_URL": "https://api-preboletas.sicar.com.mx:7201",
+        "EXPO_PUBLIC_WS_URL": "wss://api-preboletas.sicar.com.mx:7201/ws"
+      }
+    },
+    "production": {
+      "extends": "base",
+      "environment": "production",
+      "autoIncrement": true,
+      "android": { "buildType": "app-bundle" },
+      "env": {
+        "APP_VARIANT": "production",
+        "EXPO_PUBLIC_API_URL": "https://api-preboletas.sicar.com.mx:7201",
+        "EXPO_PUBLIC_WS_URL": "wss://api-preboletas.sicar.com.mx:7201/ws"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
